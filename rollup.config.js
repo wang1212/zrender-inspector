@@ -8,7 +8,7 @@ import url from '@rollup/plugin-url';
 import styles from 'rollup-plugin-styles';
 import { babel } from '@rollup/plugin-babel';
 import esbuild from 'rollup-plugin-esbuild';
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 import replace from '@rollup/plugin-replace';
 import strip from '@rollup/plugin-strip';
 import progress from 'rollup-plugin-progress';
@@ -27,7 +27,7 @@ console.log('current working directory: ' + WORKING_DIRECTORY);
 // ! 脚本必须在项目根目录执行，防止脚本执行错误
 if (!fse.pathExistsSync(path.join(WORKING_DIRECTORY, 'package.json'))) {
   throw new Error(
-    'The package.json file does not exist in the current working directory.\n'
+    'The package.json file does not exist in the current working directory.\n',
   );
 }
 
@@ -72,7 +72,7 @@ const isEnvProduction =
 const pkg = fse.readJSONSync('./package.json', { encoding: 'utf8' });
 
 // 暴露的全局变量名称
-const name = 'myLib';
+const name = 'zrenderInspector';
 const banner = () => {
   // see docs: https://github.com/terser/terser#keeping-copyright-notices-or-other-comments
   return `/*!
@@ -140,7 +140,7 @@ const configBuilder = ({ keepDebug = false, env = 'development' } = {}) => ({
       preventAssignment: true,
       values: {
         'process.env.NODE_ENV': JSON.stringify(
-          keepDebug ? env : process.env.NODE_ENV
+          keepDebug ? env : process.env.NODE_ENV,
         ),
       },
     }),
@@ -169,9 +169,9 @@ const configBuilder = ({ keepDebug = false, env = 'development' } = {}) => ({
         extensions: ['.ts', '.js'],
         babelHelpers: 'runtime',
       }),
-    !keepDebug &&
-      isEnvProduction &&
-      strip({ include: ['src/**/*.js', 'src/**/*.ts'] }),
+    // !keepDebug &&
+    // isEnvProduction &&
+    // strip({ include: ['src/**/*.js', 'src/**/*.ts'] }),
     isEnvProduction &&
       progress({
         clearLine: false, // default: true
@@ -229,7 +229,7 @@ function generateTypesEntryFile(config) {
     fse.writeFileSync(
       bundleFile.replace(path.extname(bundleFile), '.d.ts'),
       'export * from "../types"',
-      { encoding: 'utf-8' }
+      { encoding: 'utf-8' },
     );
   });
 }

@@ -11,7 +11,10 @@ module.exports = {
     'vendors',
     'docs',
     'public',
-    'example',
+    'examples',
+    'index.esm.js',
+    'index.umd.js',
+    'rollup.config.js',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {

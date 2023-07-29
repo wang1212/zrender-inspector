@@ -13,7 +13,7 @@ if (!fse.pathExistsSync(path.join(WORKING_DIRECTORY, 'package.json'))) {
   throw new Error('The package.json file does not exist in the current working directory.\n');
 }
 
-const PUBLIC_DIR = 'example/';
+const PUBLIC_DIR = 'examples/';
 
 browserSync.watch(
   [`${PUBLIC_DIR}**/*`],

@@ -37,6 +37,9 @@
     "dist",
     "build",
     "scripts",
-    "example"
+    "examples",
+    "./index.esm.js",
+    "./index.umd.js",
+    "./rollup.config.js"
   ]
 }

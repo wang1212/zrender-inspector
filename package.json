@@ -1,30 +1,122 @@
 {
-  "private": "true",
-  "name": "create-lib-starter",
+  "name": "@wang1212/zrender-inspector",
   "version": "0.0.0",
-  "description": "This is a startup development configuration template used to build the **JavaScript/Node.js** library.",
-  "main": "index.js",
-  "scripts": {
-    "prepare": "husky install",
-    "test": "echo \"Error: no test specified\"",
-    "commit": "cz"
-  },
+  "description": "zrender element inspector, which can be used to assist the development of debugging.",
+  "keywords": [
+    "zrender",
+    "inspector",
+    "debugging"
+  ],
+  "homepage": "#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wang1212/create-lib-starter.git"
+    "url": ""
   },
-  "keywords": [],
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  },
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/wang1212/create-lib-starter/issues"
+  "exports": {
+    "import": "./index.esm.js",
+    "require": "./index.umd.js",
+    "browser": "./index.umd.js"
   },
-  "homepage": "https://github.com/wang1212/create-lib-starter#readme",
+  "main": "./index.umd.js",
+  "module": "./index.esm.js",
+  "browser": "./index.umd.js",
+  "types": "./types/index.d.ts",
+  "scripts": {
+    "prepare": "husky install",
+    "build:docs-html": "generate-md --layout github --input ./docs --output ./docs-html",
+    "serve": "node scripts/serve.cjs",
+    "lint:js": "eslint src/ --config=.eslintrc.cjs --ext=.js,.ts --fix --quiet --cache --cache-location=node_modules/.cache/.eslintcache --format=pretty",
+    "lint": "npm run lint:js",
+    "test": "jest --passWithNoTests",
+    "test-watch": "jest --passWithNoTests --watch",
+    "tsc:types:check": "tsc --noEmit",
+    "tsc:types:build": "tsc --emitDeclarationOnly",
+    "tsc:types:build-watch": "tsc --emitDeclarationOnly --watch",
+    "build:types": "node scripts/run-cli.cjs \"npm run tsc:types:build\"",
+    "build-watch:types": "node scripts/run-cli.cjs \"npm run tsc:types:build-watch\" --silent",
+    "build": "npm run test && npm run build:types && cross-env NODE_ENV=production rollup --config",
+    "build-watch": "cross-env NODE_ENV=development rollup --config --watch",
+    "build-watch-serve": "cross-env NODE_ENV=development rollup --config --watch --serve",
+    "esbuild-build-watch": "cross-env NODE_ENV=development node scripts/esbuild-watch.cjs",
+    "esbuild-build-watch-serve": "cross-env NODE_ENV=development node scripts/esbuild-watch.cjs --serve",
+    "dev": "concurrently --raw --kill-others \"npm:build-watch\" \"npm:build-watch:types\"",
+    "dev-serve": "concurrently --raw --kill-others \"npm:build-watch-serve\" \"npm:build-watch:types\"",
+    "esbuild-dev": "concurrently --raw --kill-others \"npm:esbuild-build-watch\" \"npm:build-watch:types\"",
+    "esbuild-dev-serve": "concurrently --raw --kill-others \"npm:esbuild-build-watch-serve\" \"npm:build-watch:types\"",
+    "commit": "cz",
+    "prerelease": "npm run test",
+    "release": "release-it",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "files": [
+    "build/",
+    "types/",
+    "index.esm.js",
+    "index.umd.js"
+  ],
   "devDependencies": {
+    "@babel/core": "7.22.9",
+    "@babel/plugin-proposal-decorators": "7.22.7",
+    "@babel/plugin-transform-runtime": "7.22.9",
+    "@babel/preset-env": "7.22.9",
+    "@babel/preset-typescript": "7.22.5",
     "@commitlint/cli": "17.6.7",
     "@commitlint/config-conventional": "17.6.7",
+    "@release-it/conventional-changelog": "^7.0.0",
+    "@rollup/plugin-babel": "6.0.3",
+    "@rollup/plugin-commonjs": "22.0.2",
+    "@rollup/plugin-json": "4.1.0",
+    "@rollup/plugin-node-resolve": "13.3.0",
+    "@rollup/plugin-replace": "4.0.0",
+    "@rollup/plugin-strip": "2.1.0",
+    "@rollup/plugin-terser": "^0.4.3",
+    "@rollup/plugin-url": "7.0.0",
+    "@rollup/plugin-virtual": "2.1.0",
+    "@types/jest": "29.5.3",
+    "@types/node": "18.17.0",
+    "@typescript-eslint/eslint-plugin": "6.2.0",
+    "@typescript-eslint/parser": "6.2.0",
+    "@wang1212/eslint-config": "0.3.0",
+    "babel-jest": "29.6.2",
+    "browser-sync": "2.29.3",
     "commitizen": "4.3.0",
+    "concurrently": "8.2.0",
+    "cross-env": "7.0.3",
     "cz-conventional-changelog": "3.3.0",
-    "husky": "8.0.3"
+    "esbuild": "0.15.12",
+    "esbuild-style-plugin": "1.6.2",
+    "eslint": "8.46.0",
+    "eslint-formatter-pretty": "5.0.0",
+    "fs-extra": "11.1.1",
+    "husky": "8.0.3",
+    "jest": "29.6.2",
+    "jest-environment-jsdom": "29.6.2",
+    "lint-staged": "13.2.3",
+    "markdown-styles": "3.2.0",
+    "prettier": "3.0.0",
+    "release-it": "*",
+    "rollup": "2.79.1",
+    "rollup-plugin-esbuild": "4.10.3",
+    "rollup-plugin-filesize": "9.1.2",
+    "rollup-plugin-progress": "1.1.2",
+    "rollup-plugin-styles": "4.0.0",
+    "rollup-plugin-visualizer": "5.8.3",
+    "sass": "1.64.1",
+    "typescript": "5.1.6",
+    "zrender": "^5.4.4"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.22.6",
+    "core-js": "^3.32.0",
+    "dot-prop": "^8.0.2"
   }
 }

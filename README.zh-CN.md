@@ -1,45 +1,67 @@
-# Create JavaScript Lib Starter
+# create lib starter
 
-![LICENSE](https://badgen.net/github/license/wang1212/create-lib-starter)
-![LAST COMMIT](https://badgen.net/github/last-commit/wang1212/create-lib-starter)
+<!-- ![LICENSE](https://badgen.net/github/license/wang1212/create-cli-app-starter) -->
+<!-- ![MINZIPPED SIZE](https://badgen.net/bundlephobia/minzip/@wang1212/create-cli-app-starter) -->
+<!-- [![NPM VERSION](https://badgen.net/npm/v/@wang1212/create-cli-app-starter)](https://www.npmjs.com/package/@wang1212/create-cli-app-starter) -->
+<!-- ![DOWNLOAD](https://badgen.net/npm/dt/@wang1212/create-cli-app-starter) -->
+<!-- ![LAST COMMIT](https://badgen.net/github/last-commit/wang1212/create-cli-app-starter) -->
+<!-- ![GITHUB PACKAGE CI](https://img.shields.io/github/workflow/status/wang1212/create-cli-app-starter/Node.js%20Package?label=ci/package%20publish) -->
+<!-- [![Codacy Badge](https://app.codacy.com/project/badge/Grade/a9b9c06027ba47788617123cf84d3912)](https://www.codacy.com/gh/wang1212/create-cli-app-starter/dashboard?utm_source=github.com&utm_medium=referral&utm_content=wang1212/create-cli-app-starter&utm_campaign=Badge_Grade) -->
+
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/a8f4a088840a4cec88e56a9c11f25e87)](https://www.codacy.com/gh/wang1212/create-lib-starter/dashboard?utm_source=github.com&utm_medium=referral&utm_content=wang1212/create-lib-starter&utm_campaign=Badge_Grade)
 
 [English](./README.md) | 简体中文
 
-这是用于构建 **JavaScript/Node.js** 库的启动开发配置模板。
+🔧 [ZRender](https://github.com/ecomfe/zrender) 元素检查器，可用来辅助开发调试。
 
-## 模板
+## 打包
 
-这里提供了以下几个模板：
+运行 `npm run build`, 最终将生成以下捆绑包。
 
-- [JavaScript](./templates/javascript/)
-- [TypeScript](./templates/typescript/)
-- [CLI(JavaScript)](./templates/cli/)
+```plain
+types/
+build/
+├── bundle.esm.js
+├── bundle.esm.min.js
+├── bundle.umd.js
+└── bundle.umd.min.js
+```
+
+还将生成相应的 **sourcemap** 文件。
 
 ## 用法
 
-1. 有两种使用此模板的方法：
+- 开发模式
 
-   - 打开 [GitHub Repository Website](https://github.com/wang1212/create-lib-starter), 然后点击 **Use this template** 按钮。
+  ```bash
+  $ npm run dev # or $ npm run esbuild-dev
+  ```
 
-   - 另一种方式, `clone` 到本地
+- 开发模式（Web 服务）
 
-     ```bash
-     git clone https://github.com/wang1212/create-lib-starter.git
-     ```
+  ```bash
+  $ npm run dev-serve # or $ npm run esbuild-dev-serve
+  ```
 
-2. 然后，选择你要使用的任何模板类型，将其文件夹（_./templates/\*_）的内容复制到项目根目录，并删除 _templates/_ 文件夹。
+- 运行测试
 
-   - [选择一个开源许可证](https://choosealicense.com/)；
+  ```bash
+  $ npm run test
+  ```
 
-   - 修改 `package.json` 信息, 例如 `name`, `description` 等；
+- 构建打包
 
-   - 将仓库远程地址设置为你自己的:
+  ```bash
+  $ npm run build
+  ```
 
-     ```bash
-     git remote set-url origin 'your own address'
-     ```
+- 从 Markdown 文档构建 Html 文档
+
+  ```bash
+  $ npm run build:docs-html
+  ```
+
+_更多命令查看 **package.json** 中 `scripts` 字段。_
 
 ## 开发准则
 
@@ -57,15 +79,21 @@ npm run commit
 
 _这种约束依赖于社区提供的工具 [commitizen](http://commitizen.github.io/cz-cli/) 和 [commitlint](https://commitlint.js.org/)。_
 
-## 相关的
+### npm 发布
 
-如果你想开发一个 Web 应用，也许你可以看看：
+该模块的版本管理采用社区推荐的规范[语义化版本控制](https://semver.org/)。跟随版本变动会维护一个**变更日志(CHANGELOG.md)**（[了解为什么这么做](https://keepachangelog.com/)）。
 
-> [create-web-app](https://github.com/wang1212/create-web-app)
+```bash
+# 在发布到 npm 存储库之前更新版本并生成更改日志
+npm run release # npm run release -- --first-release
+# 或者，进行预览
+npm run release -- --dry-run
 
-或，其它类似的东西：
+# 然后发布
+npm publish # npm publish --access public
+```
 
-> [awesome-template](https://github.com/wang1212/awesome-template)
+_这些工作是在社区提供的 [release-it](https://github.com/release-it/release-it) 工具的帮助下完成的。_
 
 ## 许可
 

@@ -1,45 +1,67 @@
-# Create JavaScript Lib Starter
+# create lib starter
 
-![LICENSE](https://badgen.net/github/license/wang1212/create-lib-starter)
-![LAST COMMIT](https://badgen.net/github/last-commit/wang1212/create-lib-starter)
+<!-- ![LICENSE](https://badgen.net/github/license/wang1212/create-cli-app-starter) -->
+<!-- ![MINZIPPED SIZE](https://badgen.net/bundlephobia/minzip/@wang1212/create-cli-app-starter) -->
+<!-- [![NPM VERSION](https://badgen.net/npm/v/@wang1212/create-cli-app-starter)](https://www.npmjs.com/package/@wang1212/create-cli-app-starter) -->
+<!-- ![DOWNLOAD](https://badgen.net/npm/dt/@wang1212/create-cli-app-starter) -->
+<!-- ![LAST COMMIT](https://badgen.net/github/last-commit/wang1212/create-cli-app-starter) -->
+<!-- ![GITHUB PACKAGE CI](https://img.shields.io/github/workflow/status/wang1212/create-cli-app-starter/Node.js%20Package?label=ci/package%20publish) -->
+<!-- [![Codacy Badge](https://app.codacy.com/project/badge/Grade/a9b9c06027ba47788617123cf84d3912)](https://www.codacy.com/gh/wang1212/create-cli-app-starter/dashboard?utm_source=github.com&utm_medium=referral&utm_content=wang1212/create-cli-app-starter&utm_campaign=Badge_Grade) -->
+
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/a8f4a088840a4cec88e56a9c11f25e87)](https://www.codacy.com/gh/wang1212/create-lib-starter/dashboard?utm_source=github.com&utm_medium=referral&utm_content=wang1212/create-lib-starter&utm_campaign=Badge_Grade)
 
 English | [简体中文](./README.zh-CN.md)
 
-This is a startup development configuration template used to build the **JavaScript/Node.js** library.
+🔧 [ZRender](https://github.com/ecomfe/zrender) element inspector, which can be used to assist the development of debugging.
 
-## Templates
+## Bundle
 
-The following templates are provided here:
+Run `npm run build`, the following bundles will eventually be generated.
 
-- [JavaScript](./templates/javascript/)
-- [TypeScript](./templates/typescript/)
-- [CLI(JavaScript)](./templates/cli/)
+```plain
+types/
+build/
+├── bundle.esm.js
+├── bundle.esm.min.js
+├── bundle.umd.js
+└── bundle.umd.min.js
+```
+
+Will also generate the corresponding **sourcemap** file.
 
 ## Usage
 
-1. There are two ways to use this template:
+- Development mode
 
-   - Open [GitHub Repository Website](https://github.com/wang1212/create-lib-starter), then Click **Use this template** Button.
+  ```bash
+  $ npm run dev # or $ npm run esbuild-dev
+  ```
 
-   - Another way, clone to local
+- Development mode (web server)
 
-     ```bash
-     git clone https://github.com/wang1212/create-lib-starter.git
-     ```
+  ```bash
+  $ npm run dev-serve # or $ npm run esbuild-dev-serve
+  ```
 
-2. Then, select any template type you want to use, copy the contents of its folder(_./templates/\*_) to the project root directory, and delete the _templates/_ folder.
+- Run test
 
-   - [Choose an open source license](https://choosealicense.com/).
+  ```bash
+  $ npm run test
+  ```
 
-   - Modify `package.json` information, such as `name`, `description`, etc.
+- Build bundle
 
-   - Set the remote address of the github repository to your own:
+  ```bash
+  $ npm run build
+  ```
 
-     ```bash
-     git remote set-url origin 'your own address'
-     ```
+- Build Html documents from Markdown documents
+
+  ```bash
+  $ npm run build:docs-html
+  ```
+
+_See the `scripts` field in **package.json** for more commands._
 
 ## Development Guidelines
 
@@ -57,15 +79,21 @@ npm run commit
 
 _This constraint relies on tools [commitizen](http://commitizen.github.io/cz-cli/) and [commitlint](https://commitlint.js.org/) provided by the community._
 
-## Related
+### npm publish
 
-If you want to develop a web application, maybe you can take a look:
+The version management of this module adopts the specifications recommended by the community [Semantic Versioning](https://semver.org/). Follow version changes and maintain a **CHANGELOG.md**([Learn why](https://keepachangelog.com/)).
 
-> [create-web-app](https://github.com/wang1212/create-web-app)
+```bash
+# Update version and generate changelog before publishing to npm repository
+npm run release # npm run release -- --first-release
+# Or, preview
+npm run release -- --dry-run
 
-Or, other similar things:
+# Then
+npm publish # npm publish --access public
+```
 
-> [awesome-template](https://github.com/wang1212/awesome-template)
+_These jobs are done with the help of [release-it](https://github.com/release-it/release-it) tool provided by the community._
 
 ## License
 
