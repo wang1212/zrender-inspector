@@ -174,7 +174,7 @@ Query the first matching element based on the element's `id` attribute.
 
 - `getElementsByName(name): Element`
 - parameter
--
+
   | name | type     | optional | default | description                    |
   | :--- | :------- | :------- | :------ | :----------------------------- |
   | name | `string` |          |         | Element `name` attribute value |

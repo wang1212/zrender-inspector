@@ -174,7 +174,7 @@ const elements = inspectorIns.querySelectorAll('type=rect,style.fill=#f00');
 
 - `getElementsByName(name): Element`
 - 参数
--
+
   | 名称 | 类型     | 是否可选 | 默认值 | 描述               |
   | :--- | :------- | :------- | :----- | :----------------- |
   | name | `string` |          |        | 元素 `name` 属性值 |
