@@ -258,11 +258,11 @@ The version management of this module adopts the specifications recommended by t
 
 ```bash
 # Update version and generate changelog before publishing to npm repository
-npm run release # npm run release -- --first-release
+npm run release
 # Or, preview
 npm run release -- --dry-run
 
-# Then
+# Then publish to npm, if yes is not selected when auto-publishing to npm
 npm publish # npm publish --access public
 ```
 
