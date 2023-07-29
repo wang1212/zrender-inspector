@@ -4,17 +4,24 @@ module.exports = {
   extends: ['@wang1212/eslint-config/typescript'],
   ignorePatterns: [
     'node_modules',
-    '.husky',
-    '.github',
+    'dist',
     'build',
+    'coverage',
+    'assets',
+    'public',
+    'docs',
+    'examples',
+    'scripts',
     'types',
     'vendors',
-    'docs',
-    'public',
-    'examples',
+    '.babelrc.cjs',
+    '.commitlintrc.cjs',
+    '.eslintrc.cjs',
+    '.lintstagedrc.mjs',
+    'jest.config.mjs',
+    'rollup.config.js',
     'index.esm.js',
     'index.umd.js',
-    'rollup.config.js',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -31,6 +38,13 @@ module.exports = {
   settings: {},
   rules: {
     'import/prefer-default-export': 'off',
+    'no-underscore-dangle': 'off',
+    '@typescript-eslint/no-this-alias': [
+      'error',
+      {
+        allowedNames: ['self'], // Allow `const self = this`; `[]` by default
+      },
+    ],
   },
   globals: {},
 };

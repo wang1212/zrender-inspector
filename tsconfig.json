@@ -31,15 +31,24 @@
   },
   "include": ["src", "vendors/@types"],
   "exclude": [
-    ".eslintrc.cjs",
-    "docs",
-    "public",
+    "node_modules",
     "dist",
     "build",
-    "scripts",
+    "coverage",
+    "assets",
+    "public",
+    "docs",
     "examples",
-    "./index.esm.js",
-    "./index.umd.js",
-    "./rollup.config.js"
+    "scripts",
+    "types",
+    "vendors",
+    ".babelrc.cjs",
+    ".commitlintrc.cjs",
+    ".eslintrc.cjs",
+    ".lintstagedrc.mjs",
+    "jest.config.mjs",
+    "rollup.config.js",
+    "index.esm.js",
+    "index.umd.js"
   ]
 }

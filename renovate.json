@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "config:js-lib",
+    "packages:eslint",
+    ":npm",
+    "npm:unpublishSafe",
+    ":rebaseStalePrs"
+  ]
+}

@@ -226,7 +226,7 @@ if (isEnvProduction) {
 function generateTypesEntryFile(config) {
   config.output.forEach((item) => {
     const bundleFile = path.join(WORKING_DIRECTORY, item.file);
-    fse.writeFileSync(
+    fse.outputFileSync(
       bundleFile.replace(path.extname(bundleFile), '.d.ts'),
       'export * from "../types"',
       { encoding: 'utf-8' },
