@@ -54,8 +54,8 @@ const inspectorIns = new Inspector(zrIns, config?);
   | name                | type                         | optional | default | description                       |
   | :------------------ | :--------------------------- | :------- | :------ | :-------------------------------- |
   | zrIns               | `ZRenderType`                |          |         | ZRender instance                  |
-  | config              | `{ highlightCSS?: string; }` | 是       |         |                                   |
-  | config.highlightCSS | `string`                     | 是       |         | Element highlight style `cssText` |
+  | config              | `{ highlightCSS?: string; }` | true     |         |                                   |
+  | config.highlightCSS | `string`                     | true     |         | Element highlight style `cssText` |
 
 For example, to debug the [echarts](https://echarts.apache.org/) chart library:
 
