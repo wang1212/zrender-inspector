@@ -1,0 +1,30 @@
+{
+  "private": "true",
+  "name": "create-lib-starter",
+  "version": "0.0.0",
+  "description": "This is a startup development configuration template used to build the **JavaScript/Node.js** library.",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install",
+    "test": "echo \"Error: no test specified\"",
+    "commit": "cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wang1212/create-lib-starter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wang1212/create-lib-starter/issues"
+  },
+  "homepage": "https://github.com/wang1212/create-lib-starter#readme",
+  "devDependencies": {
+    "@commitlint/cli": "17.6.7",
+    "@commitlint/config-conventional": "17.6.7",
+    "commitizen": "4.3.0",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "8.0.3"
+  }
+}

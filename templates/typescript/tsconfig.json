@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    "sourceMap": true,
+    "removeComments": false,
+
+    "strict": true,
+    // "strictNullChecks": false,
+    // "strictBindCallApply": false,
+    // "strictFunctionTypes": false,
+    // "strictPropertyInitialization": false,
+    // "noImplicitAny": false,
+    // "noImplicitThis": false,
+
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+
+    "declaration": true,
+    "declarationMap": false,
+    "declarationDir": "./types",
+    // "emitDeclarationOnly": true,
+
+    "typeRoots": ["node_modules/@types", "vendors/@types"],
+
+    "skipLibCheck": true
+  },
+  "include": ["src", "vendors/@types"],
+  "exclude": [
+    ".eslintrc.cjs",
+    "docs",
+    "public",
+    "dist",
+    "build",
+    "scripts",
+    "example"
+  ]
+}

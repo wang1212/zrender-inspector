@@ -1,0 +1,60 @@
+{
+  "name": "cli-app",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "#readme",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": "https://github.com/*/*/issues"
+  },
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "author": "",
+  "bin": {
+    "cli-app": "./index.js"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "eslint . --config=.eslintrc.cjs --fix --quiet --cache --cache-location=node_modules/.cache/.eslintcache --format=pretty",
+    "node": "node --experimental-specifier-resolution=node",
+    "test": "echo \"test\"",
+    "build": "echo \"build\"",
+    "commit": "cz",
+    "prerelease": "npm run test",
+    "release": "standard-version",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "index.js"
+  ],
+  "peerDependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "17.6.7",
+    "@commitlint/config-conventional": "17.6.7",
+    "@wang1212/eslint-config": "0.2.1",
+    "commitizen": "4.3.0",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "8.26.0",
+    "eslint-formatter-pretty": "4.1.0",
+    "husky": "8.0.3",
+    "lint-staged": "13.0.3",
+    "prettier": "2.7.1",
+    "standard-version": "9.5.0"
+  },
+  "dependencies": {
+    "chalk": "^5.0.1"
+  }
+}
