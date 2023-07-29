@@ -1,6 +1,6 @@
 {
   "name": "@wang1212/zrender-inspector",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "zrender element inspector, which can be used to assist the development of debugging.",
   "keywords": [
     "zrender",
