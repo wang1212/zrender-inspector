@@ -1,11 +1,11 @@
 /*!
   * @wang1212/zrender-inspector
   * @description zrender element inspector, which can be used to assist the development of debugging.
-  * @version 0.0.0
-  * @date 2023/7/30 00:42:09
+  * @version 0.1.0
+  * @date 2023/7/30 00:46:46
   * @author 
   */
-var version$1 = "0.0.0";
+var version$1 = "0.1.0";
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
