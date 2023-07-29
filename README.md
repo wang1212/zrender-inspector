@@ -18,7 +18,7 @@ This tool provides a way similar to the DOM structure of the **Element** tag deb
 
 ![showcase](./assets/showcase.webp)
 
-[Online example](./examples/index.html)
+[Online example](https://wang1212.github.io/zrender-inspector/examples/index.html)
 
 ## Usage
 

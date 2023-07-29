@@ -18,7 +18,7 @@
 
 ![showcase](./assets/showcase.webp)
 
-[在线示例](./examples/index.html)
+[在线示例](https://wang1212.github.io/zrender-inspector/examples/index.html)
 
 ## 用法
 
