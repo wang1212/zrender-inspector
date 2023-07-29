@@ -10,7 +10,8 @@
 /coverage
 
 # bundle
-/build
+/build/*
+!build/bundle.esm.js
 /types
 
 # docs build
