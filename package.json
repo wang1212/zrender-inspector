@@ -7,16 +7,16 @@
     "inspector",
     "debugging"
   ],
-  "homepage": "#readme",
+  "homepage": "https://wang1212.github.io/zrender-inspector/",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/wang1212/zrender-inspector"
   },
   "license": "MIT",
   "engines": {
     "node": ">=16"
   },
-  "author": "",
+  "author": "wang1212",
   "exports": {
     "import": "./index.esm.js",
     "require": "./index.umd.js",
