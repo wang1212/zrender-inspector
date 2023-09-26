@@ -16,7 +16,7 @@
 
 该工具提供类似 ChromeDevtools 中 **Element** 标签调试页面 DOM 结构的方式来对 ZRender 元素进行检查，同时提供一些类似 [`document.querySelectorAll()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) 的 APIs 从全局对 ZRender 元素进行查询选择。
 
-![showcase](./assets/showcase.webp)
+![showcase](https://wang1212.github.io/zrender-inspector/assets/showcase.webp)
 
 [在线示例](https://wang1212.github.io/zrender-inspector/examples/index.html)
 
@@ -192,31 +192,31 @@ const elements = inspectorIns.querySelectorAll('type=rect,style.fill=#f00');
 - 开发模式
 
   ```bash
-  $ npm run dev # or $ npm run esbuild-dev
+  npm run dev # or $ npm run esbuild-dev
   ```
 
 - 开发模式（Web 服务）
 
   ```bash
-  $ npm run dev-serve # or $ npm run esbuild-dev-serve
+  npm run dev-serve # or $ npm run esbuild-dev-serve
   ```
 
 - 运行测试
 
   ```bash
-  $ npm run test
+  npm run test
   ```
 
 - 构建打包
 
   ```bash
-  $ npm run build
+  npm run build
   ```
 
 - 从 Markdown 文档构建 Html 文档
 
   ```bash
-  $ npm run build:docs-html
+  npm run build:docs-html
   ```
 
 _更多命令查看 **package.json** 中 `scripts` 字段。_

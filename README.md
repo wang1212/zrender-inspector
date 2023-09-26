@@ -16,7 +16,7 @@ English | [简体中文](./README.zh-CN.md)
 
 This tool provides a way similar to the DOM structure of the **Element** tag debugging page in ChromeDevtools to inspect ZRender elements, and also provides some similar [`document.querySelectorAll()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) APIs to query and select ZRender elements globally.
 
-![showcase](./assets/showcase.webp)
+![showcase](https://wang1212.github.io/zrender-inspector/assets/showcase.webp)
 
 [Online example](https://wang1212.github.io/zrender-inspector/examples/index.html)
 
@@ -192,31 +192,31 @@ Query the set of all matching elements according to the `name` attribute of the 
 - Development mode
 
   ```bash
-  $ npm run dev # or $ npm run esbuild-dev
+  npm run dev # or $ npm run esbuild-dev
   ```
 
 - Development mode (web server)
 
   ```bash
-  $ npm run dev-serve # or $ npm run esbuild-dev-serve
+  npm run dev-serve # or $ npm run esbuild-dev-serve
   ```
 
 - Run test
 
   ```bash
-  $ npm run test
+  npm run test
   ```
 
 - Build bundle
 
   ```bash
-  $ npm run build
+  npm run build
   ```
 
 - Build Html documents from Markdown documents
 
   ```bash
-  $ npm run build:docs-html
+  npm run build:docs-html
   ```
 
 _See the `scripts` field in **package.json** for more commands._
