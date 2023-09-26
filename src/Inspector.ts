@@ -139,7 +139,7 @@ export class Inspector {
 
     this.__highlightTooltipDom = document.createElement('div');
     this.__highlightTooltipDom.style.cssText =
-      'box-sizing: border-box; position: fixed; pointer-events: none; z-index: 9999; background-color: rgba(255, 255, 255, .5); font-size: 12px; padding: 8px 12px; box-shadow: 0 0 8px rgba(0, 0, 0, .05);';
+      'box-sizing: border-box; position: fixed; pointer-events: none; z-index: 9999; background-color: rgba(255, 255, 255, .75); font-size: 12px; padding: 8px 12px; box-shadow: 0 0 8px rgba(0, 0, 0, .25);';
     document.body.appendChild(this.__highlightTooltipDom);
 
     this.__bindEvents();
@@ -213,17 +213,16 @@ export class Inspector {
     const self = this;
     const zrIns = self.__zrIns;
     const zrInsDomBBox = zrIns.dom!.getBoundingClientRect();
-    const bBox = el.getBoundingRect();
-    const globalCoord = el.transformCoordToGlobal(bBox.x, bBox.y);
+    const bBox = el.getBoundingRect().clone();
+    bBox.applyTransform(el.transform);
 
     self.__highlightDom!.style.display = 'block';
-    self.__highlightDom!.style.left = `${(
-      zrInsDomBBox.x + globalCoord[0]
-    ).toFixed(2)}px`;
-    self.__highlightDom!.style.top = `${(
-      zrInsDomBBox.y + globalCoord[1]
-    ).toFixed(2)}px`;
-    // TODO 未考虑缩放
+    self.__highlightDom!.style.left = `${(zrInsDomBBox.x + bBox.x).toFixed(
+      2,
+    )}px`;
+    self.__highlightDom!.style.top = `${(zrInsDomBBox.y + bBox.y).toFixed(
+      2,
+    )}px`;
     self.__highlightDom!.style.width = `${bBox.width.toFixed(2)}px`;
     self.__highlightDom!.style.height = `${bBox.height.toFixed(2)}px`;
   }
