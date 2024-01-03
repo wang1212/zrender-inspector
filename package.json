@@ -93,7 +93,7 @@
     "cross-env": "7.0.3",
     "cz-conventional-changelog": "3.3.0",
     "esbuild": "0.15.12",
-    "esbuild-style-plugin": "1.6.2",
+    "esbuild-style-plugin": "1.6.3",
     "eslint": "8.56.0",
     "eslint-formatter-pretty": "5.0.0",
     "fs-extra": "11.1.1",
