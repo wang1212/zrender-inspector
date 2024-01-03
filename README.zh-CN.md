@@ -95,7 +95,7 @@ inspectorIns.hoverHighlightEnable = true;
 默认情况下为：
 
 ```plain
-[zrIns.id][el.id] el.name (type:el.type) X: Y: x: y: w: h:
+[zrIns.id][el.id] el.name (type:el.type) X: Y: W: H: x: y: w: h:
 ```
 
 ### `disableAllElementSilent()`

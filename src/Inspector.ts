@@ -1,8 +1,8 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { ZRenderType as ZRender, Element, ElementEvent } from 'zrender';
 import { getProperty } from 'dot-prop';
+import { version } from '../package.json';
 
-// eslint-disable-next-line no-use-before-define
 const inspectorMap = new WeakMap<ZRender, Inspector>();
 
 export class Inspector {
@@ -72,20 +72,25 @@ export class Inspector {
   /**
    * Logs the element for debugging purposes.
    *
-   * default - [zrIns.id][el.id] el.name (type:el.type) X: Y: x: y: w: h:
+   * default - [zrIns.id][el.id] el.name (type:el.type) X: Y: W: H: x: y: w: h:
    *
    * @param {ZRender} zrIns - ZRender instance.
    * @param {Element} el - The element to be logged.
    */
   static debugLogger(zrIns: ZRender, el: Element) {
     const bBox = el.getBoundingRect();
-    const globalCoord = el.transformCoordToGlobal(bBox.x, bBox.y);
+    const bBoxWithTransform = bBox.clone();
+    bBoxWithTransform.applyTransform(el.transform);
 
     return `[${zrIns.id}][${el.id}] ${el.name} (type:${
       el.type
-    }) \nX:${globalCoord[0].toFixed(2)} Y:${globalCoord[1].toFixed(
+    }) \nX:${bBoxWithTransform.x.toFixed(2)} Y:${bBoxWithTransform.y.toFixed(
       2,
-    )} \nx:${bBox.x.toFixed(2)} y:${bBox.y.toFixed(2)} w:${bBox.width.toFixed(
+    )} W:${bBoxWithTransform.width.toFixed(
+      2,
+    )} H:${bBoxWithTransform.height.toFixed(2)} \nx:${bBox.x.toFixed(
+      2,
+    )} y:${bBox.y.toFixed(2)} w:${bBox.width.toFixed(
       2,
     )} h:${bBox.height.toFixed(2)}`;
   }
@@ -107,6 +112,8 @@ export class Inspector {
       `${Inspector.logPrefix}[${zrIns.id}] Disables the silent mode for all elements in the storage, should only be used in development mode.`,
     );
   }
+
+  readonly version = version;
 
   private __zrIns: ZRender;
 
@@ -232,18 +239,21 @@ export class Inspector {
     const zrIns = self.__zrIns;
     const zrInsDomBBox = zrIns.dom!.getBoundingClientRect();
     const bBox = el.getBoundingRect();
-    const globalCoord = el.transformCoordToGlobal(bBox.x, bBox.y);
+    const bBoxWithTransform = bBox.clone();
+    bBoxWithTransform.applyTransform(el.transform);
 
     self.__highlightTooltipDom!.style.display = 'block';
-    // TODO 未考虑缩放
     self.__highlightTooltipDom!.innerHTML = `
       <p style="margin: 0 0 8px 0; font-weight: bold;">[${
         el.type.slice(0, 1).toUpperCase() + el.type.slice(1)
       }]</p>
       <p style="margin: 0 0 8px 0;">GlobalCoord</p>
-      <p style="margin: 0 0 8px 0;">x: ${(
-        zrInsDomBBox.x + globalCoord[0]
-      ).toFixed(2)} y: ${(zrInsDomBBox.y + globalCoord[1]).toFixed(2)}</p>
+      <p style="margin: 0 0 8px 0;">X: ${(
+        zrInsDomBBox.x + bBoxWithTransform.x
+      ).toFixed(2)} Y: ${(zrInsDomBBox.y + bBoxWithTransform.y).toFixed(2)}</p>
+      <p style="margin: 0 0 8px 0;">W: ${bBox.width.toFixed(
+        2,
+      )} H: ${bBox.height.toFixed(2)}</p>
       <p style="margin: 0 0 8px 0;">BoundingRect</p>
       <p style="margin: 0 0 8px 0;">x: ${bBox.x.toFixed(2)} y: ${bBox.y.toFixed(
         2,
@@ -285,17 +295,24 @@ export class Inspector {
     }
 
     function handleZrMouseMove(event: ElementEvent) {
-      if (hoverEl === event.target) {
+      if (!event.target) {
         return;
       }
-      hoverEl = event.target;
+
+      const el =
+        event.target.type === 'tspan' ? event.target.parent : event.target;
+      if (hoverEl === el) {
+        return;
+      }
+      hoverEl = el;
 
       self.__debugLog(hoverEl);
       self.highlight(hoverEl, event);
     }
 
     function handleZrClick(event: ElementEvent) {
-      hoverEl = event.target;
+      hoverEl =
+        event.target.type === 'tspan' ? event.target.parent : event.target;
 
       self.highlight(hoverEl, event);
       self.__dirEl(hoverEl);
