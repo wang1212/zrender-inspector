@@ -1,5 +1,12 @@
 
 
+## [0.1.2](https://github.com/wang1212/zrender-inspector/compare/0.1.1...0.1.2) (2024-01-03)
+
+
+### Bug Fixes
+
+* add the width and height attributes of the box model after the transformation is applied ([499188c](https://github.com/wang1212/zrender-inspector/commit/499188ca188cb6594b6b08ed77158f6a6a7459e5))
+
 ## [0.1.1](https://github.com/wang1212/zrender-inspector/compare/0.1.0...0.1.1) (2023-09-26)
 
 
