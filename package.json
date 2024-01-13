@@ -82,7 +82,7 @@
     "@rollup/plugin-url": "8.0.2",
     "@rollup/plugin-virtual": "3.0.2",
     "@types/jest": "29.5.11",
-    "@types/node": "18.18.9",
+    "@types/node": "18.19.6",
     "@typescript-eslint/eslint-plugin": "6.18.1",
     "@typescript-eslint/parser": "6.18.1",
     "@wang1212/eslint-config": "0.3.1",
