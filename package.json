@@ -85,7 +85,7 @@
     "@types/node": "18.19.6",
     "@typescript-eslint/eslint-plugin": "6.18.1",
     "@typescript-eslint/parser": "6.18.1",
-    "@wang1212/eslint-config": "0.3.1",
+    "@wang1212/eslint-config": "0.4.0",
     "babel-jest": "29.7.0",
     "browser-sync": "2.29.3",
     "commitizen": "4.3.0",
