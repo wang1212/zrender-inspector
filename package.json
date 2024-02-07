@@ -102,7 +102,7 @@
     "jest-environment-jsdom": "29.7.0",
     "lint-staged": "15.2.1",
     "markdown-styles": "3.2.0",
-    "prettier": "3.2.4",
+    "prettier": "3.2.5",
     "release-it": "17.0.3",
     "rollup": "2.79.1",
     "rollup-plugin-esbuild": "5.0.0",
