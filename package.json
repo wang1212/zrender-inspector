@@ -100,7 +100,7 @@
     "husky": "8.0.3",
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",
-    "lint-staged": "15.2.1",
+    "lint-staged": "15.2.2",
     "markdown-styles": "3.2.0",
     "prettier": "3.2.5",
     "release-it": "17.0.3",
